@@ -35,10 +35,10 @@ public class Panel extends JPanel implements KeyListener {
 	}
 	
 	public void drawSplashPage(Graphics g) {
-		g.setColor(Color.MAGENTA);
+		g.setColor(new Color(250, 250, 255));
 		g.drawImage(new ImageIcon("src/pictures/character.png").getImage(), 300, 300, 200, 200, null);
-		g.setFont(new Font("TimesRoman", Font.PLAIN, 36)); 
-		g.drawString("Hello World", 300, 300);
+		g.setFont(new Font("Arial", Font.PLAIN, 100)); 
+		g.drawString("The Closet App", 300, 300);
 		g.drawOval(200, 600, 400, 25);
 	}
 	
