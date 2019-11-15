@@ -22,7 +22,7 @@ public class Panel extends JPanel implements KeyListener {
 	
 	public Panel() {
 		addKeyListener(this);
-		setBackground(new Color(64, 64, 64));
+		setBackground(new Color(255, 255, 255));
 		setDoubleBuffered(true);
 		setFocusable(true);
 		
@@ -35,11 +35,12 @@ public class Panel extends JPanel implements KeyListener {
 	}
 	
 	public void drawSplashPage(Graphics g) {
-		g.setColor(new Color(250, 250, 255));
-		g.drawImage(new ImageIcon("src/pictures/character.png").getImage(), 300, 300, 200, 200, null);
-		g.setFont(new Font("Arial", Font.PLAIN, 100)); 
-		g.drawString("The Closet App", 300, 300);
-		g.drawOval(200, 600, 400, 25);
+		g.setFont(new Font("Arial", Font.PLAIN, 100));
+		g.setColor(new Color(0, 0, 0));
+		g.drawString("The Closet App", 600, 100);
+		g.drawRoundRect(300, 400, 300, 100, 75, 75);
+		g.setColor(new Color(183, 16, 37));
+		g.fillRoundRect(300, 400, 200, 100, 75, 75);
 	}
 	
 	@Override

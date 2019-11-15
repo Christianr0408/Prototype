@@ -7,7 +7,7 @@ public class Application extends JFrame {
 	
 	public Application() {
 		setSize(800, 800);
-		setTitle("Prototype");
+		setTitle("The Closet App");
 		
 		panel = new Panel();
 		add(panel);
