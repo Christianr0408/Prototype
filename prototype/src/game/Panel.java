@@ -15,6 +15,8 @@ import java.util.TimerTask;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Panel extends JPanel implements KeyListener {
@@ -38,9 +40,25 @@ public class Panel extends JPanel implements KeyListener {
 		g.setFont(new Font("Arial", Font.PLAIN, 100));
 		g.setColor(new Color(0, 0, 0));
 		g.drawString("The Closet App", 600, 100);
-		g.drawRoundRect(300, 400, 300, 100, 75, 75);
 		g.setColor(new Color(183, 16, 37));
-		g.fillRoundRect(300, 400, 200, 100, 75, 75);
+		g.fillRoundRect(450, 700, 200, 100, 75, 75);
+		
+		
+		g.fillRoundRect(850, 700, 200, 100, 75, 75);
+		g.fillRoundRect(1250, 700, 200, 100, 75, 75);
+		g.setColor(new Color(255,255,255));
+		
+		g.setFont(new Font("Arial", Font.PLAIN, 35));
+		g.drawString("New Outfit", 470, 760);
+		g.drawString("Saved Outfits", 850, 760);
+		g.drawString("Settings", 1285, 760);
+		
+		g.drawImage(new ImageIcon("src/pictures/hanger.png").getImage(), 800, 300, 300, 200, null);
+		
+		
+	}
+	public void secondpage(Graphics g) {
+		g.setColor(Color.BLACK);
 	}
 	
 	@Override
