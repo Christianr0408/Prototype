@@ -7,6 +7,8 @@ import java.awt.Image;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -19,15 +21,17 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Panel extends JPanel implements KeyListener {
+public class Panel extends JPanel implements KeyListener, MouseListener {
 
 	String screenTracker;
 	
+	int imageTracker=0;
 	
-	String[] screenList = {"title_screen", "select_screen"};
+	String[] screenList = {"loading_screen", "title_screen", "select_screen"};
 	
 	public Panel() {
 		addKeyListener(this);
+		addMouseListener(this);
 		setBackground(new Color(255, 255, 255));
 		setDoubleBuffered(true);
 		setFocusable(true);
@@ -40,7 +44,7 @@ public class Panel extends JPanel implements KeyListener {
 		repaint();
 	}
 	
-	public void drawLoadingScreen(Graphics g) {
+	public void drawLoadingPage(Graphics g) {
 		g.setFont(new Font("Arial", Font.PLAIN, 100));
 		g.setColor(new Color(0, 0, 0));
 		g.drawString("The Closet App", 600, 100);
@@ -93,18 +97,20 @@ public class Panel extends JPanel implements KeyListener {
 		g.drawString("Saved Outfits", 850, 760);
 		g.drawString("Menu", 1310, 760);
 		
-		g.drawImage(new ImageIcon("src/pictures/closet.png").getImage(), 800, 200, 400, 400, null);
+		
+		if (imageTracker == 0)
+				g.drawImage(new ImageIcon("src/pictures/closet.png").getImage(), 800, 200, 400, 400, null);
+		if (imageTracker == 1)
+				g.drawImage(new ImageIcon("src/pictures/hoodie1.png").getImage(), 750, 200, 400, 400, null);
 	}
 	
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		drawLoadingScreen(g);
-		/*if (screenTracker.contentEquals("title_screen"))
+		if (screenTracker.contentEquals("title_screen"))
 			drawSplashPage(g);
-		else
+		else 
 			drawSecondPage(g);
-		*/
 	}
 
 	@Override
@@ -112,6 +118,10 @@ public class Panel extends JPanel implements KeyListener {
 		
 		if(k.getKeyCode()==KeyEvent.VK_ENTER) {
 			screenTracker="selection_screen";
+		}
+			
+		if(k.getKeyCode()==KeyEvent.VK_RIGHT) {
+			imageTracker++;
 		}
 		
 		
@@ -122,5 +132,36 @@ public class Panel extends JPanel implements KeyListener {
 
 	@Override
 	public void keyTyped(KeyEvent arg0) {}
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getButton()==MouseEvent.BUTTON1)
+			System.out.println(e.getLocationOnScreen());
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
